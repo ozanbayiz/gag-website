@@ -662,7 +662,7 @@ production stylesheet in assets/built/screen.css
 
 .site-header {
     position: relative;
-    color: #fff;
+    color: transparent;
     background: var(--ghost-accent-color);
 }
 
@@ -841,7 +841,7 @@ production stylesheet in assets/built/screen.css
 
 .has-cover:not(.home-template) .gh-head {
     background-color: var(--ghost-accent-color);
-    color: #fff;
+    color: #000;
 }
 
 :is(.home-template, .paged:not(.tag-template):not(.author-template)).has-cover .gh-head {
@@ -851,7 +851,7 @@ production stylesheet in assets/built/screen.css
     left: 0;
     z-index: 2000;
     background-color: transparent;
-    color: #fff;
+    color: #000;
 }
 
 .gh-head a {
