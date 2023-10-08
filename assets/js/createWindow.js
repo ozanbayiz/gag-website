@@ -1,10 +1,3 @@
-/*import GhostContentAPI from '@tryghost/content-api';
-const api = new GhostContentAPI({
-  host: 'https://gag-magazine.ghost.io',
-  key: '20b7a52083019b30518d73c51b',
-  version: "v5.0"
-});*/
-
 let  desktop = document.querySelector('.desktop');
 let windowTemplate = document.querySelector('#new-window');
 let shortCutContainer = document.querySelector('.short-cuts');
