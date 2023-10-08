@@ -1,4 +1,4 @@
-let  desktop = document.querySelector('.desktop');
+let desktop = document.querySelector('.desktop');
 let windowTemplate = document.querySelector('#new-window');
 let shortCutContainer = document.querySelector('.short-cuts');
 let shortCuts = document.querySelectorAll('.short-cut');
