@@ -28,6 +28,7 @@ html, body {
   
   .short-cuts {
     margin-bottom: 28px;
+    display:inline-block
   }
   
   .short-cut {
@@ -1203,7 +1204,7 @@ production stylesheet in assets/built/screen.css
 .gh-head-actions .gh-search {
     margin-right: -4px;
 }
-
+/*
 @media (max-width: 767px) {
     .gh-head-actions .gh-search {
         display: none;
@@ -1214,7 +1215,7 @@ production stylesheet in assets/built/screen.css
     .gh-head-brand .gh-search {
         display: none;
     }
-}
+}*/
 
 
 /* Mobile Menu Trigger

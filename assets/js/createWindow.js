@@ -7,6 +7,13 @@ let startMenu = document.querySelector('.start-menu');
 let taskBarItems = document.querySelector('.task-bar-items');
 let taskBarItemTemplate = document.querySelector('#new-task-bar-item');
 let clock = document.querySelector('.clock');
+let maxWindowY = window.innerHeight;
+let maxWindowX = window.innerWidth;
+
+let minWindowWidth = 200;
+let minWindowHeight = 200;
+let maxWindowWidth = 400;
+let maxWindowHeight = 400;
 
 shortCutContainer.addEventListener('mousedown', ({ target }) => {
   if (target !== shortCutContainer) return;
@@ -64,7 +71,15 @@ function setClock() {
   let now = new Date();
   let hours24 = now.getHours();
   let hours12 = hours24 > 12 ? hours24 - 12 : hours24;
-  clock.textContent = `${hours12}:${now.getMinutes()} ${hours24 >= 12 ? 'PM' : 'AM'}`;
+
+  let nowMinutes = now.getMinutes();
+  let nowMinutesString = ``;
+  if (nowMinutes < 10) {
+    nowMinutesString = `0${nowMinutes}`;
+  } else {
+    nowMinutesString = `${nowMinutes}`;
+  }
+  clock.textContent = `${hours12}:${nowMinutesString} ${hours24 >= 12 ? 'PM' : 'AM'}`;
 }
 setClock();
 setInterval(setClock, 1000);
@@ -123,6 +138,7 @@ function dragMove(win, xMove, yMove, xSize, ySize) {
 function createWindow() {
   let win = windowTemplate.content.cloneNode(true);
   win = win.querySelector('.window');
+  randomSizeAndLocation(win);
   desktop.appendChild(win);
   let taskBarItem = taskBarItemTemplate.content.cloneNode(true);
   taskBarItem = taskBarItem.querySelector('.task-bar-item');
@@ -156,6 +172,18 @@ function createWindow() {
   });
   addContent(windowObject);
   selectWindow(windowObject);
+}
+
+function randomSizeAndLocation(win) {
+  let windowHeight = Math.random() * (maxWindowHeight - minWindowHeight) + minWindowHeight;
+  let windowWidth = Math.random() * (maxWindowWidth - minWindowWidth) + minWindowWidth;
+
+  let windowX = Math.random() * (maxWindowX - windowWidth);
+  let windowY = Math.random() * (maxWindowY - windowHeight); 
+  win.style.left = `${windowX}px`;
+  win.style.top = `${windowY}px`;
+  win.style.width = `${windowWidth}px`;
+  win.style.height = `${windowHeight}px`;
 }
 
 function toggleMaximize(windowObject) {
@@ -285,9 +313,15 @@ function unmaximizeWindow(windowObject) {
 }
 
 function addContent({ win }) {
+  // get content from window
   let content = win.querySelector('.content');
-  let numberOfSections = Math.ceil(Math.random()*5)+5;
-  let lastSectionTag = null;
+
+
+  let numberOfSections = 5;
+  // let <name> = document.createElement('<type>');
+  // content.appendChild(<name>);
+  let lastSectinTag = 'p';
+  content.appendChild('h1');
   for (let i = 0; i < numberOfSections; i++) {
     if (i > 0 && lastSectionTag !== 'img' && Math.random() > 0.5) {
       lastSectionTag = 'p';
@@ -304,5 +338,45 @@ function addContent({ win }) {
     }
   }
 }
+function aboutWindow(){
+  let win = windowTemplate.content.cloneNode(true);
+  win = win.querySelector('.window');
+  desktop.appendChild(win);
+  let taskBarItem = taskBarItemTemplate.content.cloneNode(true);
+  taskBarItem = taskBarItem.querySelector('.task-bar-item');
+  taskBarItems.appendChild(taskBarItem);
+  let windowObject = { win, taskBarItem };
+  windows.push(windowObject);
+  win.querySelector('.title-bar .minimize').addEventListener('click', () => minimizeWindow(windowObject));
+  win.querySelector('.title-bar .maximize').addEventListener('click', () => toggleMaximize(windowObject));
+  win.querySelector('.title-bar .close').addEventListener('click', () => closeWindow(windowObject));
+  let titleBarText = win.querySelector('.title-bar .title');
+  let title = `Window #${windowIndex++}`;
+  titleBarText.textContent = title;
+  taskBarItem.querySelector('.title').textContent = title;
+  titleBarText.addEventListener('mousedown', dragMove(win, 1, 1, 0, 0));
+  titleBarText.addEventListener('dblclick', () => toggleMaximize(windowObject))
+
+  win.querySelector('.n-grab').addEventListener('mousedown', dragMove(win, 0, 1, 0, -1));
+  win.querySelector('.ne-grab').addEventListener('mousedown', dragMove(win, 0, 1, 1, -1));
+  win.querySelector('.e-grab').addEventListener('mousedown', dragMove(win, 0, 0, 1, 0));
+  win.querySelector('.se-grab').addEventListener('mousedown', dragMove(win, 0, 0, 1, 1));
+  win.querySelector('.s-grab').addEventListener('mousedown', dragMove(win, 0, 0, 0, 1));
+  win.querySelector('.sw-grab').addEventListener('mousedown', dragMove(win, 1, 0, -1, 1));
+  win.querySelector('.w-grab').addEventListener('mousedown', dragMove(win, 1, 0, -1, 0));
+  win.querySelector('.nw-grab').addEventListener('mousedown', dragMove(win, 1, 1, -1, -1));
+  win.addEventListener('mousedown', () => selectWindow(windowObject), { passive: true });
+
+  taskBarItem.addEventListener('mousedown', () => {
+    if (windowObject.win.classList.contains('active')) {
+      minimizeWindow(windowObject);
+    } else {
+      selectWindow(windowObject);
+    }
+  });
+  addContent(windowObject);
+  selectWindow(windowObject);
+}
+
 
 createWindow();

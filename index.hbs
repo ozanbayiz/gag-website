@@ -15,57 +15,22 @@
         <symbol id="arrow-right" viewBox="0 0 4 7"><path fill="currentColor" d="M0 0v7h1V6h1V5h1V4h1V3H3V2H2V1H1V0H0Z"/></symbol>
       </defs>
     </svg>
-    {{ghost_head}}
+  {{ghost_head}}
   </head>
 
   <body>
     <div class="desktop">
-      <header id="gh-head" class="gh-head outer{{#match @custom.header_style "Hidden"}} is-header-hidden{{/match}}">
-        <div class="gh-head-inner inner">
-            <div class="gh-head-brand">
-                <a class="gh-head-logo{{#unless @site.logo}} no-image{{/unless}}" href="{{@site.url}}">
-                    {{#if @site.logo}}
-                        <img src="{{@site.logo}}" alt="{{@site.title}}">
-                    {{else}}
-                        {{@site.title}}
-                    {{/if}}
+      <div class="gh-head-brand">
+                <a class="gh-head-logo no-image" href="{{@site.url}}">             
+                        {{@site.title}} 
                 </a>
-                <button class="gh-search gh-icon-btn" aria-label="Search this site" data-ghost-search>{{> "icons/search"}}</button>
-                <button class="gh-burger"></button>
-            </div>
-
-            <nav class="gh-head-menu">
-                {{navigation}}
-                {{#unless @site.members_enabled}}
-                    {{#match @custom.navigation_layout "Stacked"}}
-                        <button class="gh-search gh-icon-btn" aria-label="Search this site" data-ghost-search>{{> "icons/search"}}</button>
-                    {{/match}}
-                {{/unless}}
-            </nav>
-
-            <div class="gh-head-actions">
-                {{#unless @site.members_enabled}}
-                    {{^match @custom.navigation_layout "Stacked"}}
-                        <button class="gh-search gh-icon-btn" data-ghost-search>{{> "icons/search"}}</button>
-                    {{/match}}
-                {{else}}
-                    <button class="gh-search gh-icon-btn" data-ghost-search>{{> "icons/search"}}</button>
-                    <div class="gh-head-members">
-                        {{#unless @member}}
-                            {{#unless @site.members_invite_only}}
-                                <a class="gh-head-link" href="#/portal/signin" data-portal="signin">Sign in</a>
-                                <a class="gh-head-button" href="#/portal/signup" data-portal="signup">Subscribe</a>
-                            {{else}}
-                                <a class="gh-head-button" href="#/portal/signin" data-portal="signin">Sign in</a>
-                            {{/unless}}
-                        {{else}}
-                            <a class="gh-head-button" href="#/portal/account" data-portal="account">Account</a>
-                        {{/unless}}
-                    </div>
-                {{/unless}}
-            </div>
+                <div class="gh-head-actions">
+                  <button class="gh-search gh-icon-btn" data-ghost-search>{{> "icons/search"}}</button>
+                  <a class="gh-head-link" href="#/portal/signin" data-portal="signin">Sign in</a>
+                  <a class="gh-head-link" href="#/portal/signup" data-portal="signup">Subscribe</a>
+              </div>
         </div>
-    </header>
+
       <template id="new-window">
         <div class="window" style="width:200px;height:200px;top:100px;left:100px">
           <div class="frame">
@@ -92,10 +57,12 @@
                 </div>
               </button>
             </div>
+
             <div class="content-bevel">
               <div class="content">
                 <h1>Hello, World!</h1>
               </div>
+
             </div>
           </div>
           <div class="grab n-grab"></div>
@@ -118,12 +85,16 @@
           </div>
         </div>
       </template>
+
       <div class="short-cuts">
+
         <div class="short-cut">
           <svg class="icon" width="32" height="32"><use href="#default-window-icon-32"/></svg>
           <div class="text">New Window</div>
         </div>
+
       </div>
+
       <div class="task-bar">
         <div class="bevel">
           <div class="start-menu hidden">
@@ -164,5 +135,6 @@
       </div>
     </div>
     <script src="./assets/js/createWindow.js"></script>
+    {{ghost_foot}}
   </body>
 </html>
