@@ -5,7 +5,7 @@ const api = new GhostContentAPI({
   version: "v5.0"
 });*/
 
-let desktop = document.querySelector('.desktop');
+let  desktop = document.querySelector('.desktop');
 let windowTemplate = document.querySelector('#new-window');
 let shortCutContainer = document.querySelector('.short-cuts');
 let shortCuts = document.querySelectorAll('.short-cut');
@@ -146,7 +146,7 @@ function createWindow() {
   let win = windowTemplate.content.cloneNode(true);
   win = win.querySelector('.window');
   randomSizeAndLocation(win);
-  desktop.appendChild(win);
+   desktop.appendChild(win);
   let taskBarItem = taskBarItemTemplate.content.cloneNode(true);
   taskBarItem = taskBarItem.querySelector('.task-bar-item');
   taskBarItems.appendChild(taskBarItem);
@@ -255,7 +255,7 @@ function minimizeWindow(windowObject) {
     beforeMinimize(windowObject, animatedTitleBar);
   }
   animatedTitleBar.classList.add('animating');
-  desktop.appendChild(animatedTitleBar);
+   desktop.appendChild(animatedTitleBar);
   let taskBarRect = windowObject.taskBarItem.getBoundingClientRect();
   setTimeout(() => {
     afterMinimize(windowObject, animatedTitleBar);
@@ -274,7 +274,7 @@ function unminimizeWindow(windowObject) {
   let animatedTitleBar = titleBar.cloneNode(true);
   afterMinimize(windowObject, animatedTitleBar);
   animatedTitleBar.classList.add('animating');
-  desktop.appendChild(animatedTitleBar);
+   desktop.appendChild(animatedTitleBar);
   setTimeout(() => {
     if (windowObject.win.classList.contains('maximized')) {
       afterMaximize(windowObject, animatedTitleBar);
@@ -293,7 +293,7 @@ function maximizeWindow(windowObject) {
   let animatedTitleBar = titleBar.cloneNode(true);
   beforeMinimize(windowObject, animatedTitleBar);
   animatedTitleBar.classList.add('animating');
-  desktop.appendChild(animatedTitleBar);
+   desktop.appendChild(animatedTitleBar);
   let taskBarRect = windowObject.taskBarItem.getBoundingClientRect();
   setTimeout(() => {
     afterMaximize(windowObject, animatedTitleBar);
@@ -309,7 +309,7 @@ function unmaximizeWindow(windowObject) {
   let animatedTitleBar = titleBar.cloneNode(true);
   afterMaximize(windowObject, animatedTitleBar);
   animatedTitleBar.classList.add('animating');
-  desktop.appendChild(animatedTitleBar);
+   desktop.appendChild(animatedTitleBar);
   let taskBarRect = windowObject.taskBarItem.getBoundingClientRect();
   setTimeout(() => {
     beforeMinimize(windowObject, animatedTitleBar);
@@ -328,6 +328,9 @@ function addContent({ win }) {
   let numberOfSections = 5;
   // let <name> = document.createElement('<type>');
   // content.appendChild(<name>);
+  let h1 = document.createElement('h1');
+  h1.textContent = 'Hello, World!';
+  content.appendChild(h1);
   let lastSectionTag = 'p';
   //content.appendChisld('h1');
   for (let i = 0; i < numberOfSections; i++) {
@@ -347,20 +350,50 @@ function addContent({ win }) {
     }
   }
 }
+
+function addAboutContent({win}) {
+
+  let content = win.querySelector('.content');
+  let h1 = document.createElement('h1');
+  h1.textContent = 'What the fuck is GAG!?';
+  content.appendChild(h1);
+
+  
+  let img = document.createElement('img');
+  img.src = './assets/images/mission_statement.jpeg';
+  img.style = 'width: 500px';
+  content.appendChild(img);
+
+  let h2 = document.createElement('h2');
+  h2.textContent = 'Mission Statement';
+  content.appendChild(h2);
+
+  let p = document.createElement('p');
+  p.textContent = 'Gag! is founded on the values of messiness, authenticity, and fragmentation of identity. Gag! encourages members and guests to lean into colloquialisms and fully embrace the ugly aspects of life. GAG SAYS FUCK IT! Life is about removing yourself from the serious, mundane aspects of life, it’s about trial and error and not about cohesion and presentation. We are more than our clothes, more than our appearance, and we should honor and highlight that. Gag! is not founded on diversity and inclusion, we are founded on celebration. It is not enough to welcome and invite marginalized communities - we must celebrate and honor them. Black bodies are sacred, queer bodies are sacred, trans bodies are sacred, and fat bodies are sacred. YOU ARE SACRED.';
+  content.appendChild(p);
+
+  h2 = document.createElement('h2');
+  h2.textContent = 'The GAG! Vision';
+  content.appendChild(h2);
+
+  p = document.createElement('p');
+  p.textContent = 'GAG! is at its core, a breeding ground for creativity and collaboration. The world of art has been largely dominated by the same faces over and over again, with little to no room in this world to elevate the surrounding voices, let alone our own. GAG! has no intention to police or dictate the forms of art which are deemed as “valid” and hopes to curate an environment of creativity and collaboration via the meetings, social media presence, and publishing created by its members. The vision of GAG! is to bring all forms of creatives together to learn from one another, elevate each other and simply be.';
+  content.appendChild(p);
+}
 function aboutWindow(){
   let win = windowTemplate.content.cloneNode(true);
   win = win.querySelector('.window');
-  desktop.appendChild(win);
+   desktop.appendChild(win);
   let taskBarItem = taskBarItemTemplate.content.cloneNode(true);
   taskBarItem = taskBarItem.querySelector('.task-bar-item');
   taskBarItems.appendChild(taskBarItem);
   let windowObject = { win, taskBarItem };
   windows.push(windowObject);
-  win.querySelector('.title-bar .minimize').addEventListener('click', () => minimizeWindow(windowObject));
+  //win.querySelector('.title-bar .minimize').addEventListener('click', () => minimizeWindow(windowObject));
   win.querySelector('.title-bar .maximize').addEventListener('click', () => toggleMaximize(windowObject));
-  win.querySelector('.title-bar .close').addEventListener('click', () => closeWindow(windowObject));
+  //win.querySelector('.title-bar .close').addEventListener('click', () => closeWindow(windowObject));
   let titleBarText = win.querySelector('.title-bar .title');
-  let title = `Window #${windowIndex++}`;
+  let title = `WTF is GAG!?`;
   titleBarText.textContent = title;
   taskBarItem.querySelector('.title').textContent = title;
   titleBarText.addEventListener('mousedown', dragMove(win, 1, 1, 0, 0));
@@ -383,9 +416,9 @@ function aboutWindow(){
       selectWindow(windowObject);
     }
   });
-  addContent(windowObject);
+  addAboutContent(windowObject);
   selectWindow(windowObject);
 }
 
 
-createWindow();
+aboutWindow();
