@@ -1,3 +1,5 @@
+@import "global.css";
+
 html, body {
     margin: 0;
     padding: 0;
@@ -597,7 +599,6 @@ production stylesheet in assets/built/screen.css
 /* ---------------------------------------------------------- */
 
 /* Import CSS reset and base styles */
-@import "global.css";
 
 :root {
 

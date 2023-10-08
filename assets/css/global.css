@@ -326,13 +326,13 @@ textarea {
 ::not(.gh-content) ol,
 ::not(.gh-content) dl,
 ::not(.gh-content) blockquote {
-    margin: 0 0 1.5em 0;
+    margin: 0 0 0.5em 0;
 }
 
 ol,
 ul {
     padding-left: 1.3em;
-    padding-right: 1.5em;
+    padding-right: 0.5em;
 }
 
 ol ol,
@@ -371,14 +371,14 @@ dd {
 }
 
 blockquote {
-    margin: 1.5em 0;
+    margin: 0.5em 0;
     padding: 0 1.6em 0 1.6em;
     border-left: #daf2fd;
 }
 
 blockquote small {
     display: inline-block;
-    margin: 0.8em 0 0.8em 1.5em;
+    margin: 0.8em 0 0.8em 0.5em;
     font-size: 0.9em;
     opacity: 0.8;
 }
@@ -425,7 +425,7 @@ h1 {
 }
 
 h2 {
-    margin: 1.5em 0 0.5em 0;
+    margin: 0.5em 0 0.5em 0;
     font-size: 2.8rem;
     font-weight: 700;
 }
@@ -436,7 +436,7 @@ h2 {
 }
 
 h3 {
-    margin: 1.5em 0 0.5em 0;
+    margin: 0.5em 0 0.5em 0;
     font-size: 2.4rem;
     font-weight: 600;
 }
@@ -447,7 +447,7 @@ h3 {
 }
 
 h4 {
-    margin: 1.5em 0 0.5em 0;
+    margin: 0.5em 0 0.5em 0;
     font-size: 2rem;
 }
 @media (max-width: 600px) {
@@ -457,11 +457,11 @@ h4 {
 }
 
 h5 {
-    margin: 1.5em 0 0.5em 0;
+    margin: 0.5em 0 0.5em 0;
     font-size: 2rem;
 }
 
 h6 {
-    margin: 1.5em 0 0.5em 0;
+    margin: 0.5em 0 0.5em 0;
     font-size: 1.8rem;
 }

@@ -347,7 +347,7 @@ function addContent({ win }) {
 function addAboutContent({win}) {
 
   let content = win.querySelector('.content');
-  let h1 = document.createElement('h1');
+  let h1 = document.createElement('h2');
   h1.textContent = 'What the fuck is GAG!?';
   content.appendChild(h1);
 
@@ -357,19 +357,19 @@ function addAboutContent({win}) {
   img.style = 'width: 500px';
   content.appendChild(img);
 
-  let h2 = document.createElement('h2');
+  let h2 = document.createElement('h3');
   h2.textContent = 'Mission Statement';
   content.appendChild(h2);
 
-  let p = document.createElement('p');
+  let p = document.createElement('p2');
   p.textContent = 'Gag! is founded on the values of messiness, authenticity, and fragmentation of identity. Gag! encourages members and guests to lean into colloquialisms and fully embrace the ugly aspects of life. GAG SAYS FUCK IT! Life is about removing yourself from the serious, mundane aspects of life, it’s about trial and error and not about cohesion and presentation. We are more than our clothes, more than our appearance, and we should honor and highlight that. Gag! is not founded on diversity and inclusion, we are founded on celebration. It is not enough to welcome and invite marginalized communities - we must celebrate and honor them. Black bodies are sacred, queer bodies are sacred, trans bodies are sacred, and fat bodies are sacred. YOU ARE SACRED.';
   content.appendChild(p);
 
-  h2 = document.createElement('h2');
+  h2 = document.createElement('h3');
   h2.textContent = 'The GAG! Vision';
   content.appendChild(h2);
 
-  p = document.createElement('p');
+  p = document.createElement('p2');
   p.textContent = 'GAG! is at its core, a breeding ground for creativity and collaboration. The world of art has been largely dominated by the same faces over and over again, with little to no room in this world to elevate the surrounding voices, let alone our own. GAG! has no intention to police or dictate the forms of art which are deemed as “valid” and hopes to curate an environment of creativity and collaboration via the meetings, social media presence, and publishing created by its members. The vision of GAG! is to bring all forms of creatives together to learn from one another, elevate each other and simply be.';
   content.appendChild(p);
 }
