@@ -972,6 +972,7 @@ production stylesheet in assets/built/screen.css
     align-items: center;
     height: 40px;
     word-break: break-all;
+    gap: 24px;
 }
 
 .gh-head-logo {
@@ -1195,6 +1196,15 @@ production stylesheet in assets/built/screen.css
 
 .gh-search:hover {
     opacity: 0.9;
+}
+
+.gh-head-actions {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 24px;
+    list-style: none;
+    text-align: right;
 }
 
 .gh-head-brand .gh-search {
