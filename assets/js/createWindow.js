@@ -344,7 +344,7 @@ function addContent({ win }) {
   }
 }
 
-function addAboutContent({win}) {
+function addAboutContent({ win }) {
 
   let content = win.querySelector('.content');
   let h1 = document.createElement('h1');
