@@ -10,7 +10,7 @@ let clock = document.querySelector('.clock');
 let maxWindowY = window.innerHeight;
 let maxWindowX = window.innerWidth;
 
-let minWindowWidth = 200;
+let minWindowWidth = 240;
 let minWindowHeight = 200;
 let maxWindowWidth = 400;
 let maxWindowHeight = 400;
@@ -152,7 +152,7 @@ function createWindow() {
   let title = `Window #${windowIndex++}`;
   titleBarText.textContent = title;
   taskBarItem.querySelector('.title').textContent = title;
-  titleBarText.addEventListener('mousedown', dragMove(win, 1, 1, 0, 0));
+  win.addEventListener('mousedown', dragMove(win, 1, 1, 0, 0));
   titleBarText.addEventListener('dblclick', () => toggleMaximize(windowObject))
   win.querySelector('.n-grab').addEventListener('mousedown', dragMove(win, 0, 1, 0, -1));
   win.querySelector('.ne-grab').addEventListener('mousedown', dragMove(win, 0, 1, 1, -1));
@@ -321,7 +321,7 @@ function addContent({ win }) {
   let numberOfSections = 5;
   // let <name> = document.createElement('<type>');
   // content.appendChild(<name>);
-  let h1 = document.createElement('h1');
+  let h1 = document.createElement('h2');
   h1.textContent = 'Hello, World!';
   content.appendChild(h1);
   let lastSectionTag = 'p';
@@ -389,7 +389,7 @@ function aboutWindow(){
   let title = `WTF is GAG!?`;
   titleBarText.textContent = title;
   taskBarItem.querySelector('.title').textContent = title;
-  titleBarText.addEventListener('mousedown', dragMove(win, 1, 1, 0, 0));
+  win.addEventListener('mousedown', dragMove(win, 1, 1, 0, 0));
   titleBarText.addEventListener('dblclick', () => toggleMaximize(windowObject))
 
   win.querySelector('.n-grab').addEventListener('mousedown', dragMove(win, 0, 1, 0, -1));
