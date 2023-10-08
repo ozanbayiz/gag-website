@@ -383,7 +383,7 @@ function addAboutContent({win}) {
 function aboutWindow(){
   let win = windowTemplate.content.cloneNode(true);
   win = win.querySelector('.window');
-   desktop.appendChild(win);
+  desktop.appendChild(win);
   let taskBarItem = taskBarItemTemplate.content.cloneNode(true);
   taskBarItem = taskBarItem.querySelector('.task-bar-item');
   taskBarItems.appendChild(taskBarItem);
