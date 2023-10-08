@@ -1,9 +1,9 @@
-import GhostContentAPI from '@tryghost/content-api';
+/*import GhostContentAPI from '@tryghost/content-api';
 const api = new GhostContentAPI({
   host: 'https://gag-magazine.ghost.io',
   key: '20b7a52083019b30518d73c51b',
   version: "v5.0"
-});
+});*/
 
 let desktop = document.querySelector('.desktop');
 let windowTemplate = document.querySelector('#new-window');
@@ -182,6 +182,7 @@ function createWindow() {
 }
 
 function randomSizeAndLocation(win) {
+  console.log("randomizing");
   let windowHeight = Math.random() * (maxWindowHeight - minWindowHeight) + minWindowHeight;
   let windowWidth = Math.random() * (maxWindowWidth - minWindowWidth) + minWindowWidth;
 
@@ -327,8 +328,8 @@ function addContent({ win }) {
   let numberOfSections = 5;
   // let <name> = document.createElement('<type>');
   // content.appendChild(<name>);
-  let lastSectinTag = 'p';
-  content.appendChild('h1');
+  let lastSectionTag = 'p';
+  //content.appendChisld('h1');
   for (let i = 0; i < numberOfSections; i++) {
     if (i > 0 && lastSectionTag !== 'img' && Math.random() > 0.5) {
       lastSectionTag = 'p';
@@ -342,6 +343,7 @@ function addContent({ win }) {
       let p = document.createElement('p');
       p.textContent = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.';
       content.appendChild(p);
+      lastSectionTag = 'p';
     }
   }
 }
