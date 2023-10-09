@@ -334,7 +334,9 @@ function addContent({ win }) {
       let img = document.createElement('img');
       let width = Math.round((Math.random()*300)+300);
       let height = Math.round((Math.random()*200)+200);
-      img.src = `https://loremflickr.com/${width}/${height}`;
+      //img.src = `https://loremflickr.com/${width}/${height}`;
+      img.src = './assets/images/spinning_star.gif';
+      img.SameSite='Lax'; 
       content.appendChild(img);
     } else {
       
