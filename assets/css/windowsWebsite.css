@@ -5,7 +5,10 @@ html, body {
     padding: 0;
     box-sizing: border-box;
     background-color: #fa93f0;
-    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji";
+
+    /* commented out font line */
+    /*font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji";*/
+    
     font-size: 12px;
     width: 100%;
     height: 100%;
@@ -624,15 +627,15 @@ production stylesheet in assets/built/screen.css
      */
 
     /* Fonts */
-
+/*
     --font-sans: sans-serif;
     --font-serif: sans-serif;
-    --font-mono: sans-serif;
-    /*
+    --font-mono: sans-serif;*/
+    
     --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
     --font-serif: Georgia, Times, serif;
     --font-mono: Menlo, Courier, monospace;
-    */
+    
 }
 
 

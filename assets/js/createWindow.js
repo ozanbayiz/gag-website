@@ -315,17 +315,19 @@ function unmaximizeWindow(windowObject) {
 
 function addContent({ win }) {
   // get content from window
-  let content = win.querySelector('.content');
-
 
   let numberOfSections = 5;
+
+  let content = win.querySelector('.content');
+
   // let <name> = document.createElement('<type>');
   // content.appendChild(<name>);
-  let h1 = document.createElement('h2');
-  h1.textContent = 'Hello, World!';
-  content.appendChild(h1);
+
+  let h2 = document.createElement('h2');
+  h2.textContent = 'Hello, World!';
+  content.appendChild(h2);
+
   let lastSectionTag = 'p';
-  //content.appendChisld('h1');
   for (let i = 0; i < numberOfSections; i++) {
     if (i > 0 && Math.random() > 0.2) {
       lastSectionTag = 'p';
@@ -335,10 +337,10 @@ function addContent({ win }) {
       img.src = `https://loremflickr.com/${width}/${height}`;
       content.appendChild(img);
     } else {
+      
       let p = document.createElement('p');
       let s = "WHAT DO U LOVE";
-      let i = 0;
-      for (let i = 0; i < 64; i++) {
+      for (let i = 0; i < 63; i++) {
         s += " WHAT DO U LOVE";
       }
       p.textContent = s;
