@@ -327,19 +327,24 @@ function addContent({ win }) {
   let lastSectionTag = 'p';
   //content.appendChisld('h1');
   for (let i = 0; i < numberOfSections; i++) {
-    if (i > 0 && lastSectionTag !== 'img' && Math.random() > 0.5) {
+    if (i > 0 && Math.random() > 0.2) {
       lastSectionTag = 'p';
       let img = document.createElement('img');
       let width = Math.round((Math.random()*300)+300);
       let height = Math.round((Math.random()*200)+200);
       img.src = `https://loremflickr.com/${width}/${height}`;
       content.appendChild(img);
-      lastSectionTag = 'img';
     } else {
       let p = document.createElement('p');
-      p.textContent = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.';
+      let s = "WHAT DO U LOVE";
+      let i = 0;
+      for (let i = 0; i < 64; i++) {
+        s += " WHAT DO U LOVE";
+      }
+      p.textContent = s;
+      //p.textContent = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.';
+      
       content.appendChild(p);
-      lastSectionTag = 'p';
     }
   }
 }
