@@ -19,8 +19,8 @@ const colorFunction = require('postcss-color-mod-function');
 const cssnano = require('cssnano');
 const easyimport = require('postcss-easy-import');
 
-const REPO = 'ozanbayiz/gag-magazine';
-const REPO_READONLY = 'ozanbayiz/gag-magazine';
+const REPO = 'ozanbayiz/gag-website';
+const REPO_READONLY = 'ozanbayiz/gag-website';
 const CHANGELOG_PATH = path.join(process.cwd(), '.', 'changelog.md');
 
 function serve(done) {

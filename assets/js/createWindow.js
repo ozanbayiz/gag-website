@@ -323,8 +323,8 @@ function addContent({ win }) {
 
   let content = win.querySelector('.content');
 
-  // let <name> = document.createElement('<type>');
-  // content.appendChild(<name>);
+// // let <name> = document.createElement('<type>');
+//  // content.appendChild(<name>);
 
   let h2 = document.createElement('h2');
   h2.textContent = 'CONTENT';
