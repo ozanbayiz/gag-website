@@ -46,7 +46,7 @@ function hbs(done) {
 
 function css(done) {
     pump([
-        src('assets/css/*.css', {sourcemaps: true}),
+        src('assets/css/windowsWebsite.css', {sourcemaps: true}),
         postcss([
             easyimport,
             colorFunction(),
@@ -63,7 +63,7 @@ function js(done) {
         src([
             // pull in lib files first so our own code can depend on it
             'assets/js/lib/*.js',
-            'assets/js/*.js'
+            'assets/js/createWindow.js'
         ], {sourcemaps: true}),
         concat('gag-magazine.js'),
         uglify(),
