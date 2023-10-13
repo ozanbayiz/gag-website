@@ -10,10 +10,10 @@ let clock = document.querySelector('.clock');
 let maxWindowY = window.innerHeight;
 let maxWindowX = window.innerWidth;
 
-let minWindowWidth = 240;
-let minWindowHeight = 200;
-let maxWindowWidth = 400;
-let maxWindowHeight = 400;
+let minWindowWidth = 300;
+let minWindowHeight = 250;
+let maxWindowWidth = 450;
+let maxWindowHeight = 450;
 
 shortCutContainer.addEventListener('mousedown', ({ target }) => {
   if (target !== shortCutContainer) return;
@@ -327,7 +327,7 @@ function addContent({ win }) {
   // content.appendChild(<name>);
 
   let h2 = document.createElement('h2');
-  h2.textContent = 'Hello, World!';
+  h2.textContent = 'CONTENT';
   content.appendChild(h2);
 
   let lastSectionTag = 'p';
