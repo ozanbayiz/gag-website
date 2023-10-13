@@ -1,1 +1,1 @@
-# gag-website
+# GAG MAGAZINE
