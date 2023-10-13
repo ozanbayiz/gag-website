@@ -152,7 +152,10 @@ function createWindow() {
   let title = `Window #${windowIndex++}`;
   titleBarText.textContent = title;
   taskBarItem.querySelector('.title').textContent = title;
-  win.addEventListener('mousedown', dragMove(win, 1, 1, 0, 0));
+
+  //win.addEventListener('mousedown', dragMove(win, 1, 1, 0, 0));
+  titleBarText.addEventListener('mousedown', dragMove(win, 1, 1, 0, 0));
+
   titleBarText.addEventListener('dblclick', () => toggleMaximize(windowObject))
   win.querySelector('.n-grab').addEventListener('mousedown', dragMove(win, 0, 1, 0, -1));
   win.querySelector('.ne-grab').addEventListener('mousedown', dragMove(win, 0, 1, 1, -1));
@@ -329,26 +332,38 @@ function addContent({ win }) {
 
   let lastSectionTag = 'p';
   for (let i = 0; i < numberOfSections; i++) {
-    if (i > 0 && Math.random() > 0.2) {
+    if (i > 0 && (lastSectionTag == 'p' || Math.random() > 0.3)) {
+
       lastSectionTag = 'p';
       let img = document.createElement('img');
       let width = Math.round((Math.random()*300)+300);
       let height = Math.round((Math.random()*200)+200);
-      //img.src = `https://loremflickr.com/${width}/${height}`;
-      img.src = './assets/images/spinning_star.gif';
-      img.SameSite='Lax'; 
+
+      if (Math.random() > 0.3) {
+        img.src = `https://loremflickr.com/${width}/${height}`;
+        img.SameSite='None';
+      } else {
+        img.src = './assets/images/spinning_star.gif';
+      } 
+
       content.appendChild(img);
+      lastSectionTag = 'img';
+
     } else {
       
       let p = document.createElement('p');
-      let s = "WHAT DO U LOVE";
-      for (let i = 0; i < 63; i++) {
-        s += " WHAT DO U LOVE";
+      let s = "GAG ON IT";
+      let exp = 4 + Math.random() * 4;
+      for (let i = 0; i < 2**exp; i++) {
+        s += " GAG ON IT";
       }
+
       p.textContent = s;
       //p.textContent = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.';
       
       content.appendChild(p);
+      lastSectionTag = 'p';
+
     }
   }
 }
@@ -398,7 +413,10 @@ function aboutWindow(){
   let title = `WTF is GAG!?`;
   titleBarText.textContent = title;
   taskBarItem.querySelector('.title').textContent = title;
-  win.addEventListener('mousedown', dragMove(win, 1, 1, 0, 0));
+
+  titleBarText.addEventListener('mousedown', dragMove(win, 1, 1, 0, 0));
+  //win.addEventListener('mousedown', dragMove(win, 1, 1, 0, 0));
+
   titleBarText.addEventListener('dblclick', () => toggleMaximize(windowObject))
 
   win.querySelector('.n-grab').addEventListener('mousedown', dragMove(win, 0, 1, 0, -1));
