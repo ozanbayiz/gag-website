@@ -22,7 +22,7 @@
         "postship": "git fetch && gulp release"
     },
     "author": {
-        "name": "Ghost Foundation",
+        "name": "GAG MAGAZINE",
         "email": "hello@ghost.org",
         "url": "https://ghost.org/"
     },
