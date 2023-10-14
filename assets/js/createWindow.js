@@ -1,3 +1,4 @@
+//let <variable> = document.querySelector('.<class of HTML element>');
 let desktop = document.querySelector('.desktop');
 let windowTemplate = document.querySelector('#new-window');
 let shortCutContainer = document.querySelector('.short-cuts');
@@ -7,6 +8,7 @@ let startMenu = document.querySelector('.start-menu');
 let taskBarItems = document.querySelector('.task-bar-items');
 let taskBarItemTemplate = document.querySelector('#new-task-bar-item');
 let clock = document.querySelector('.clock');
+
 let maxWindowY = window.innerHeight;
 let maxWindowX = window.innerWidth;
 
@@ -68,6 +70,10 @@ startButton.addEventListener('mousedown', (event) => {
 });
 
 function setClock() {
+  /* 
+  sets the time on the clock at the bottom right corner of the screen
+  */
+
   let now = new Date();
   let hours24 = now.getHours();
   let hours12 = hours24 > 12 ? hours24 - 12 : hours24;
@@ -81,6 +87,7 @@ function setClock() {
   }
   clock.textContent = `${hours12}:${nowMinutesString} ${hours24 >= 12 ? 'PM' : 'AM'}`;
 }
+//calls function
 setClock();
 setInterval(setClock, 1000);
 
@@ -108,6 +115,9 @@ let windowIndex = 1;
 let windows = [];
 
 function dragMove(win, xMove, yMove, xSize, ySize) {
+  /* 
+  function defining the ability to move windows on screen
+  */
   let mouseX, mouseY;
   return event => {
     if (win.classList.contains('maximized')) return;
@@ -243,6 +253,9 @@ function afterMaximize({ taskBarItem }, animatedTitleBar) {
 }
 
 function minimizeWindow(windowObject) {
+  /* 
+  function defining how window minimization works
+  */
   let titleBar = windowObject.win.querySelector('.title-bar');
   let animatedTitleBar = titleBar.cloneNode(true);
   if (windowObject.win.classList.contains('maximized')) {
