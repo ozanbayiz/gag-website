@@ -974,6 +974,10 @@ production stylesheet in assets/built/screen.css
 
 /* Brand
 /* ---------------------------------------------------------- */
+.logo-img {
+    width: 300px;
+    align-self: center;
+}
 
 .gh-head-brand {
     display: flex;

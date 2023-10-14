@@ -1,13 +1,21 @@
+@font-face { 
+  font-family: external-mono;
+  src: url('../fonts/Eternal-Mono.otf') format('opentype');
+  }
+
 html, body {
+    cursor: url('../images/spinning-star.gif'), auto;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     background-color: #fa93f0;
 
     /* commented out font line */
-    /*font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji";*/
-    
-    font-size: 12px;
+    /*font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji";
+    */
+    font-family: external-mono;
+
+    font-size: 10px;
     width: 100%;
     height: 100%;
     overflow: hidden;
@@ -39,7 +47,7 @@ display: block;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    padding: 2px;
+    padding: 7px;
     width: 72px;
 
     .icon {
@@ -313,7 +321,7 @@ display: block;
       background-color: #C0C7C8;
       display: flex;
       padding: 0;
-      font-size: 11px;
+      font-size: 10px;
   
       .bevel {
         display: flex;
@@ -379,7 +387,7 @@ display: block;
         min-height: 150px;
         
         .text {
-          font-size: 20px;
+          font-size: 12x;
           transform: rotate(-90deg) translate3d(-120px, -1px, 0);
         }
   
@@ -573,15 +581,22 @@ display: block;
 
 /* GHOST */
 
-.gh-head-brand {
+.logo-container {
+  align-items: center;
+  height: 100px;
+}
+.logo-img {
+  width: 300px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.gag-head-brand {
     display: flex;
-    align-items: center;
-    height: 40px;
-    word-break: break-all;
-    gap: 24px;
 }
 .gh-head-logo {
-    display: block;
+    text-align: center;
     font-weight: 800;
     font-size: 2.6rem;
     letter-spacing: -0.02em;

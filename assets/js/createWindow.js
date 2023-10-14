@@ -148,8 +148,8 @@ function dragMove(win, xMove, yMove, xSize, ySize) {
 function createWindow() {
   let win = windowTemplate.content.cloneNode(true);
   win = win.querySelector('.window');
-  randomSizeAndLocation(win);
-   desktop.appendChild(win);
+  setAboutWindowSizeLocation(win);
+  desktop.appendChild(win);
   let taskBarItem = taskBarItemTemplate.content.cloneNode(true);
   taskBarItem = taskBarItem.querySelector('.task-bar-item');
   taskBarItems.appendChild(taskBarItem);
@@ -331,9 +331,6 @@ function unmaximizeWindow(windowObject) {
 
 function addContent({ win }) {
   // get content from window
-
-  let numberOfSections = 5;
-
   let content = win.querySelector('.content');
 
 // // let <name> = document.createElement('<type>');
@@ -343,6 +340,7 @@ function addContent({ win }) {
   h2.textContent = 'CONTENT';
   content.appendChild(h2);
 
+  let numberOfSections = 5;
   let lastSectionTag = 'p';
   for (let i = 0; i < numberOfSections; i++) {
     if (i > 0 && (lastSectionTag == 'p' || Math.random() > 0.3)) {
@@ -382,7 +380,6 @@ function addContent({ win }) {
 }
 
 function addAboutContent({ win }) {
-
   let content = win.querySelector('.content');
   let h1 = document.createElement('h2');
   h1.textContent = 'What the fuck is GAG!?';
@@ -410,18 +407,31 @@ function addAboutContent({ win }) {
   p.textContent = 'GAG! is at its core, a breeding ground for creativity and collaboration. The world of art has been largely dominated by the same faces over and over again, with little to no room in this world to elevate the surrounding voices, let alone our own. GAG! has no intention to police or dictate the forms of art which are deemed as “valid” and hopes to curate an environment of creativity and collaboration via the meetings, social media presence, and publishing created by its members. The vision of GAG! is to bring all forms of creatives together to learn from one another, elevate each other and simply be.';
   content.appendChild(p);
 }
+
+function setAboutWindowSizeLocation({ win }){
+  let leftWindowPad = 50;
+  let topWindowPad = 100;
+
+  win.style.left = `${leftWindowPad}px`;
+  win.style.top = `${topWindowPad}px`;
+  win.style.width = `${maxWindowX - 2 * leftWindowPad}px`;
+  win.style.height = `${maxWindowY - 2 * topWindowPad}px`;
+}
 function aboutWindow(){
   let win = windowTemplate.content.cloneNode(true);
   win = win.querySelector('.window');
+  setAboutWindowSizeLocation(win);
+
   desktop.appendChild(win);
   let taskBarItem = taskBarItemTemplate.content.cloneNode(true);
   taskBarItem = taskBarItem.querySelector('.task-bar-item');
   taskBarItems.appendChild(taskBarItem);
   let windowObject = { win, taskBarItem };
-  windows.push(windowObject);
-  //win.querySelector('.title-bar .minimize').addEventListener('click', () => minimizeWindow(windowObject));
+  
+  win.querySelector('.title-bar .minimize').addEventListener('click', () => minimizeWindow(windowObject));
   win.querySelector('.title-bar .maximize').addEventListener('click', () => toggleMaximize(windowObject));
-  //win.querySelector('.title-bar .close').addEventListener('click', () => closeWindow(windowObject));
+  win.querySelector('.title-bar .close').addEventListener('click', () => closeWindow(windowObject));
+  windows.push(windowObject);
   let titleBarText = win.querySelector('.title-bar .title');
   let title = `WTF is GAG!?`;
   titleBarText.textContent = title;

@@ -188,7 +188,6 @@ function createWindow() {
 }
 
 function randomSizeAndLocation(win) {
-  console.log("randomizing");
   let windowHeight = Math.random() * (maxWindowHeight - minWindowHeight) + minWindowHeight;
   let windowWidth = Math.random() * (maxWindowWidth - minWindowWidth) + minWindowWidth;
 
@@ -410,18 +409,39 @@ function addAboutContent({ win }) {
   p.textContent = 'GAG! is at its core, a breeding ground for creativity and collaboration. The world of art has been largely dominated by the same faces over and over again, with little to no room in this world to elevate the surrounding voices, let alone our own. GAG! has no intention to police or dictate the forms of art which are deemed as “valid” and hopes to curate an environment of creativity and collaboration via the meetings, social media presence, and publishing created by its members. The vision of GAG! is to bring all forms of creatives together to learn from one another, elevate each other and simply be.';
   content.appendChild(p);
 }
+
+function setAboutWindowSizeLocation({ win }){
+  let leftWindowPad = 75;
+  let topWindowPad = 90;
+
+  win.style.left = `${leftWindowPad}px`;
+  win.style.top = `${topWindowPad}px`;
+  win.style.width = `${maxWindowX - 2 * leftWindowPad}px`;
+  win.style.height = `${maxWindowY - 2 * topWindowPad}px`;
+}
+
 function aboutWindow(){
   let win = windowTemplate.content.cloneNode(true);
   win = win.querySelector('.window');
+
+  let leftWindowPad = 75;
+  let topWindowPad = 90;
+
+  win.style.left = `${leftWindowPad}px`;
+  win.style.top = `${topWindowPad}px`;
+  win.style.width = `${maxWindowX - 2 * leftWindowPad}px`;
+  win.style.height = `${maxWindowY - 2 * topWindowPad}px`;
+
+
   desktop.appendChild(win);
   let taskBarItem = taskBarItemTemplate.content.cloneNode(true);
   taskBarItem = taskBarItem.querySelector('.task-bar-item');
   taskBarItems.appendChild(taskBarItem);
   let windowObject = { win, taskBarItem };
   windows.push(windowObject);
-  //win.querySelector('.title-bar .minimize').addEventListener('click', () => minimizeWindow(windowObject));
+  win.querySelector('.title-bar .minimize').addEventListener('click', () => minimizeWindow(windowObject));
   win.querySelector('.title-bar .maximize').addEventListener('click', () => toggleMaximize(windowObject));
-  //win.querySelector('.title-bar .close').addEventListener('click', () => closeWindow(windowObject));
+  win.querySelector('.title-bar .close').addEventListener('click', () => closeWindow(windowObject));
   let titleBarText = win.querySelector('.title-bar .title');
   let title = `WTF is GAG!?`;
   titleBarText.textContent = title;
