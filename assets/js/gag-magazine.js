@@ -267,7 +267,7 @@ function minimizeWindow(windowObject) {
   let taskBarRect = windowObject.taskBarItem.getBoundingClientRect();
   setTimeout(() => {
     afterMinimize(windowObject, animatedTitleBar);
-  }, 1);
+  }, 0.5);
   animatedTitleBar.addEventListener('transitionend', () => {
     windowObject.win.classList.add('minimized');
     windowObject.win.classList.remove('active');
@@ -289,7 +289,7 @@ function unminimizeWindow(windowObject) {
     } else {
       beforeMinimize(windowObject, animatedTitleBar);
     }
-  }, 1);
+  }, 0.5);
   animatedTitleBar.addEventListener('transitionend', () => {
     windowObject.win.classList.remove('minimized');
     animatedTitleBar.remove();
@@ -305,7 +305,7 @@ function maximizeWindow(windowObject) {
   let taskBarRect = windowObject.taskBarItem.getBoundingClientRect();
   setTimeout(() => {
     afterMaximize(windowObject, animatedTitleBar);
-  }, 1);
+  }, 0.5);
   animatedTitleBar.addEventListener('transitionend', () => {
     windowObject.win.classList.add('maximized');
     animatedTitleBar.remove();
@@ -321,7 +321,7 @@ function unmaximizeWindow(windowObject) {
   let taskBarRect = windowObject.taskBarItem.getBoundingClientRect();
   setTimeout(() => {
     beforeMinimize(windowObject, animatedTitleBar);
-  }, 1);
+  }, 0.5);
   animatedTitleBar.addEventListener('transitionend', () => {
     windowObject.win.classList.remove('maximized');
     animatedTitleBar.remove();
