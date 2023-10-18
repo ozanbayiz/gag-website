@@ -330,7 +330,6 @@ function unmaximizeWindow(windowObject) {
 
 function addContent({ win }) {
   // get content from window
-
   let numberOfSections = 5;
 
   let content = win.querySelector('.content');
@@ -357,6 +356,10 @@ function addContent({ win }) {
       } else {
         img.src = './assets/images/spinning_star.gif';
       } 
+      let win_width = win.style.width;
+      win_width = win_width.substring(0, win_width.indexOf('.'));
+      console.log(win_width);
+      img.width = win_width
 
       content.appendChild(img);
       lastSectionTag = 'img';
@@ -414,23 +417,15 @@ function setAboutWindowSizeLocation({ win }){
   let leftWindowPad = 75;
   let topWindowPad = 90;
 
-  win.style.left = `${leftWindowPad}px`;
+  win.style.left = `${maxWindowX/4 + leftWindowPad}px`;
   win.style.top = `${topWindowPad}px`;
-  win.style.width = `${maxWindowX - 2 * leftWindowPad}px`;
+  win.style.width = `${maxWindowX/2 - 2 * leftWindowPad}px`;
   win.style.height = `${maxWindowY - 2 * topWindowPad}px`;
 }
 
 function aboutWindow(){
   let win = windowTemplate.content.cloneNode(true);
   win = win.querySelector('.window');
-
-  let leftWindowPad = 75;
-  let topWindowPad = 90;
-
-  win.style.left = `${leftWindowPad}px`;
-  win.style.top = `${topWindowPad}px`;
-  win.style.width = `${maxWindowX - 2 * leftWindowPad}px`;
-  win.style.height = `${maxWindowY - 2 * topWindowPad}px`;
 
 
   desktop.appendChild(win);
@@ -470,6 +465,7 @@ function aboutWindow(){
     }
   });
   addAboutContent(windowObject);
+  setAboutWindowSizeLocation(windowObject);
   selectWindow(windowObject);
 }
 
